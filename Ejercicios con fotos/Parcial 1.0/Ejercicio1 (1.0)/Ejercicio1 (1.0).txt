@@ -1,0 +1,58 @@
+                                  ------------------------------------
+                                  MÉTODO DE EXTRAPOLACION
+                                  -------------------------------------
+
+Introduzca la ecuacion diferencial : 'Dy=sec(t)-y*sec(t)'
+Introduzca la condicion Y(a)=b : 'y(0)=4'
+Introduzca la funcion de trabajo f(ti,wi) : sec(t)-y*sec(t)
+Introduzca la condicion inicial wo : 4
+Introduzca el intervalo a : 0
+Introduzca el intervalo b : 0.15
+Introduzca el tamaño de paso h : 0.05
+Introduzca el porcentaje de error : 1e-6
+
+Solucion de ecuacion diferencial: 
+ 
+                                     2
+                             - -------------- + 2
+                               tan(1/2 t) - 1
+                             --------------------
+                               sec(t) + tan(t)
+
+Desarrollo del metodo: 
+
+Para t1=0.05  ho=0.025000000000000
+
+w1=wo+hof(a,wo)=3.925000000000000
+w2=wo+2hof(a+ho,w1)=3.853704284970119
+y11=1/2[w2+w1+hof(a+2ho,w2)]=3.853636203299201
+Y(0.050000000000000)=3.853628785098767
+|Y(0.050000000000000)-y11|=7.418200e-006
+
+Calculando y22ho=0.012500
+
+w1=wo+h1*f(a,wo)=3.962500000000000
+w2=wo+2*h1*f(a+h1,w1)=3.925931713490462
+w3=w1+2*h1*f(a+2h1,w2)=3.889328842366890
+w4=w2+2*h1*f(a+3h1,w3)=3.853647673671534
+y21=1/2[w4+w3+h1f(a+4h1,w4)]=3.853630642689636
+y22=y21+1/3(y21-y11)=3.853628789153115
+|Y(0.050000000000000)-y22|=4.054348e-009
+
+Para t2=0.10  ho=0.050000000000000
+
+w1=wo+hof(a,wo)=3.850000000000000
+w2=wo+2hof(a+ho,w1)=3.714643378528589
+y11=1/2[w2+w1+hof(a+2ho,w2)]=3.714114854728831
+Y(0.100000000000000)=3.714058738945015
+|Y(0.100000000000000)-y11|=5.611578e-005
+
+Calculando y22ho=0.025000
+
+w1=wo+h1*f(a,wo)=3.925000000000000
+w2=wo+2*h1*f(a+h1,w1)=3.853704284970119
+w3=w1+2*h1*f(a+2h1,w2)=3.782136243256568
+w4=w2+2*h1*f(a+3h1,w3)=3.714205315831883
+y21=1/2[w4+w3+h1f(a+4h1,w4)]=3.714072865553666
+y22=y21+1/3(y21-y11)=3.714058869161945
+|Y(0.100000000000000)-y22|=1.302169e-007
